@@ -21,3 +21,5 @@ python-dotenv
 
 # Fix for sqlite issues in Linux deployment (not available on Windows)
 pysqlite3-binary; sys_platform != "win32"
+
+protobuf==3.20.3
