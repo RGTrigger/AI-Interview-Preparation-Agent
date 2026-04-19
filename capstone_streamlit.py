@@ -622,9 +622,21 @@ def _extract_tool_node(cell_source: str) -> str:
     return match.group(1)
 
 
+def _hydrate_groq_key_from_streamlit_secrets() -> None:
+    if os.getenv("GROQ_API_KEY"):
+        return
+    try:
+        if "GROQ_API_KEY" in st.secrets:
+            os.environ["GROQ_API_KEY"] = str(st.secrets["GROQ_API_KEY"])
+    except Exception:
+        # Secrets may be unavailable in some local runs; keep default behavior.
+        return
+
+
 @st.cache_resource(show_spinner=False)
 def load_backend() -> Dict[str, Any]:
     load_dotenv(BASE_DIR / ".env", override=False)
+    _hydrate_groq_key_from_streamlit_secrets()
     notebook = json.loads(NOTEBOOK_PATH.read_text(encoding="utf-8"))
     module_name = "__notebook_backend__"
     notebook_module = types.ModuleType(module_name)
@@ -809,7 +821,15 @@ def main() -> None:
         st.session_state.pending_prompt = None
 
     inject_styles(st.session_state.theme)
-    backend = load_backend()
+    try:
+        backend = load_backend()
+    except Exception as exc:
+        st.error(
+            "Backend initialization failed. On Streamlit Cloud, add GROQ_API_KEY in "
+            "App settings > Secrets, then redeploy."
+        )
+        st.exception(exc)
+        st.stop()
 
     active_conversation_id = render_sidebar(st.session_state.active_conversation_id)
     messages = load_messages(active_conversation_id)
