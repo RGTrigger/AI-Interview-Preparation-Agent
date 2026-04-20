@@ -6,8 +6,7 @@ An advanced **Agentic AI-powered interview assistant** built using **LangGraph, 
 
 ## 🚀 Live Demo
 
-👉 *(Add after deployment)*
-https://your-app.streamlit.app
+👉 https://ai-interview-preparation-agent.streamlit.app/
 
 ---
 
