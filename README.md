@@ -14,15 +14,15 @@ An advanced **Agentic AI-powered interview assistant** built using **LangGraph, 
 
 ### 🏠 Home Interface
 
-![Home UI](assets/home.png)
+![Home UI](assets/Home.png)
 
 ### 💬 Chat Interface
 
-![Chat UI](assets/chat.png)
+![Chat UI](assets/Chat.png)
 
 ### 🏠 Light Home Interface
 
-![Interview Mode](assets/interview.png)
+![Interview Mode](assets/Light.png)
 
 > 📌 Create an `assets/` folder and add screenshots here.
 
