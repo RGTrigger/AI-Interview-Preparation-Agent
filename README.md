@@ -20,7 +20,7 @@ An advanced **Agentic AI-powered interview assistant** built using **LangGraph, 
 
 ![Chat UI](assets/chat.png)
 
-### 🎯 Interview Mode
+### 🏠 Light Home Interface
 
 ![Interview Mode](assets/interview.png)
 
