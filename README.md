@@ -24,8 +24,6 @@ An advanced **Agentic AI-powered interview assistant** built using **LangGraph, 
 
 ![Interview Mode](assets/Light.png)
 
-> 📌 Create an `assets/` folder and add screenshots here.
-
 ---
 
 ## 📌 Project Overview
